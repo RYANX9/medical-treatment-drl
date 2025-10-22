@@ -1,0 +1,33 @@
+{
+    "best_model": "A2C",
+    "timestamp": "2025-10-22 12:37:20.455887",
+    "summary": {
+        "mean_reward": 244.44444444444434,
+        "std_reward": 193.76580142653944,
+        "treatment_rate": 1.0,
+        "appropriateness": 0.9947643979057592,
+        "mean_abnormal": 5.5732984293193715
+    },
+    "filtering_results": {
+        "raw": {
+            "mean_reward": 172.3222222222222,
+            "std_reward": 144.3999021065979,
+            "treatment_rate": 1.0,
+            "appropriateness": 0.9969135802469135,
+            "mean_abnormal": 6.105084745762712
+        },
+        "filtered": {
+            "mean_reward": 166.3222222222222,
+            "std_reward": 141.87590647994523,
+            "treatment_rate": 1.0,
+            "appropriateness": 0.9888888888888889,
+            "mean_abnormal": 6.159322033898305
+        }
+    },
+    "baselines": {
+        "Random": 148.74999999999997,
+        "Always_Treat": 99.76666666666662,
+        "Never_Treat": 114.69444444444444,
+        "Smart_Baseline": 168.2277777777777
+    }
+}
