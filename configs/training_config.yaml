@@ -1,0 +1,71 @@
+# Training Configuration for Medical Treatment RL
+
+# Data Settings
+data:
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  min_episode_length: 3
+
+# Environment Settings
+environment:
+  state_dim: 26
+  action_dim: 4
+  history_window: 5
+
+# Training Settings
+training:
+  seed: 42
+  device: "auto"  # Will use GPU if available
+  
+  # PPO Configuration
+  ppo:
+    timesteps: 150000
+    learning_rate: 0.0003
+    gamma: 0.99
+    n_steps: 2048
+    batch_size: 64
+    n_epochs: 10
+    gae_lambda: 0.95
+    clip_range: 0.2
+    ent_coef: 0.01
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+  
+  # A2C Configuration
+  a2c:
+    timesteps: 120000
+    learning_rate: 0.0002
+    gamma: 0.99
+    n_steps: 5
+    gae_lambda: 0.95
+    ent_coef: 0.01
+    vf_coef: 0.5
+    max_grad_norm: 0.5
+  
+  # DQN Configuration
+  dqn:
+    timesteps: 150000
+    learning_rate: 0.0001
+    gamma: 0.99
+    buffer_size: 100000
+    learning_starts: 1000
+    batch_size: 64
+    tau: 0.005
+    train_freq: 4
+    gradient_steps: 1
+    target_update_interval: 1000
+    exploration_fraction: 0.3
+    exploration_initial_eps: 1.0
+    exploration_final_eps: 0.05
+
+# Evaluation Settings
+evaluation:
+  n_eval_episodes: 20
+  eval_freq: 5000
+  deterministic: true
+
+# Safety Filter Settings
+safety_filter:
+  treat_threshold: 3
+  stable_threshold: 2
